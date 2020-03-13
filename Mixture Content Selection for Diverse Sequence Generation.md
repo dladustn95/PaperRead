@@ -1,4 +1,4 @@
-Mixture Content Selection for Diverse Sequence Generation
+Mixture Content Selection for Diverse Sequence Generation  
 https://arxiv.org/pdf/1909.01953.pdf
 
 method to explicitly separate diversification from generation using a general plug-and-play module (called SELECTOR) that wraps around and guides an existing encoder-decoder model.
