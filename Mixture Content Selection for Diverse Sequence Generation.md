@@ -18,3 +18,12 @@ latent variable m을 factorize p(y|x)하기위해 처음 사용
 p(y|x) = E_{m~p_\phi(m|x)}[p_\phi(y|m,x)]  
 p(m,x)는 *selector*, p(y|x,m)은 *generator*  
 
+
+SELECTOR는 여러 expert로 구성되고 각 expert는 source sequence의 다른 부분을 specialize한다.  
+각 focus m은 정규분포에 따라 K개중 하나의 expert로 할당된다. p(z|x)=1/K  
+
+Generator : 각 SELECTOR expert에서 하나의 focus를 샘플해서 p_\phi(m|x)를 근사.  
+각 focus는 embedding되고, source sequence embedding과 concat,   
+
+Mixture of Experts란 각 expert(n개)의 output을 GatingNetwork의 Output(n차원 벡터)으로 Linear combination  
+
