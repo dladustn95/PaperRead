@@ -35,7 +35,7 @@ STD : word type에 대한 type distribution과 3가지 type-specific generation 
 HTD :  gumble softmax를 사용해서 argmax를 근사화하여 decoding process를 더 explicitly하게 함
 final generation probability of a word가 word type에 의해 조절됨
 
-STD
+3.3 STD  
 P(y_t|y_{<t},X)=\sigma^k_{i=1}P(y_t|ty_t=c_i,y_{<t},X)\dotP(ty_t=c_i|y_{<t},X)
 첫번째 term은 mixture of the type-specific generation probability이다. 두번째 term을 가중치로 가짐
 두번째 term은 probability of the type distribution
@@ -50,8 +50,8 @@ time step에서 이게 어떤 type 일지 확률에 time step에서 어떤 type 
 즉 time step에서 각 type마다 단어 확률이 나오면 그걸 더해
 그래서 결과값이 어떤 type인지는 몰라
 generation distribution은 같은 word에 대해 존재하므로 word type을 명시적으로 분류할 필요는 없다.
-
-3.6 HTD
+  
+3.4 HTD  
 단어가 각 post마다 3가지 중 하나로 분류된다.
 디코더는 각  위치에 대한 type distribution을 추정하고 가장 높은 type probability를 가지는 단어를 생성한다.
 
@@ -62,8 +62,9 @@ argmax는 두가지 문제가 생김
 gumbel-softmax로 해결
 특정 type probability는 그 type의 단어에만 영향
 각 post에서 topic word는 PMI로 의문사는 small dictionary로 나머지는 ordinary word로 구분
-
-3.5 Loss function
+  
+3.5 Loss function  
 NLL쓰는데 type도 같이 학습
 
-3.6 Topic Word Prediction
+3.6 Topic Word Prediction  
+PMI로 주제 단어 찾음, 주제 단어 후보군은 동사와 명사
